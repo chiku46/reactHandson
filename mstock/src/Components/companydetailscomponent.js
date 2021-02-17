@@ -5,14 +5,17 @@ const CompanyDetailsComponent = (props) => {
         'background-color':'#eee',
     };
     let cardstyle = {
-        'width': '18rem'
+        'width': '20rem',
+        marginTop: "10px"
     };
     return(
-            <div className="card col-lg-3 col-md-3" style={cardstyle}>
-                <div className="card-title" style={title}>{props.companyName}</div>
-                <p className="card-text">{props.description}</p>
-                <div className="card-title" style={title}>Today's Price: ${props.currentPrice}</div>
+        <div className="col-lg-3 col-sm-6">
+            <div className="card" style={cardstyle}>
+                <div className="card-header" style={title}>{props.companyName}</div>
+                <p className="card-text text-center">{props.description}</p>
+                <div className="card-footer" style={title}>Today's Price: ${props.currentPrice}</div>
             </div>  
+            </div>
     );
 }
 export default CompanyDetailsComponent;
