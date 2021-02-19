@@ -14,16 +14,22 @@ class CompaniesListComponent extends Component {
             console.log(this.state.repos[0]);
         }); 
     }
+     watch = {
+        'background-color':'blue',
+        color:'white',
+        border:'1px solid #ccc'
+    };
+    buttonWatch = (
+    <button className="ml-auto"
+     style={this.watch} onClick=''>Watch</button>
+    );
+    
     companies = () =>{
-        console.log("Hello from the inside");
+        console.log("Hello from the inside Companies List");
         return(
         this.state.repos.map((item) => {
-            console.log(item.companyId);
-            console.log(item.companyName);
            return(
-                <CompanyDetailsComponent companyName={item.companyName}
-                description={item.description}
-                currentPrice={item.currentStockPrice}/>
+                <CompanyDetailsComponent company={item} button = {this.buttonWatch}/>
            ) ;
         })
         );

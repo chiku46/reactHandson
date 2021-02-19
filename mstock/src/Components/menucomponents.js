@@ -1,11 +1,11 @@
 import React from 'react';
-const loggedin = () => {
+const loggedin = (props) => {
     return(
     <div >
-        <a href="#"> Companies </a>
-        <a href="#"> Watch List </a>
+        <a href="#" onClick = {()=> props.pageHandle('companiesList')}> Companies </a>
+        <a href="#" onClick = {()=> props.pageHandle('watchList')} > Watch List </a>
         <a href="#"> Compare Performance </a>
-        <a href="#"> Logout</a>
+        <a href="#" onClick = {()=> props.pageHandle('login')}> Logout</a>
     </div> );
 };
 const anonymous = () => {
@@ -15,7 +15,7 @@ const anonymous = () => {
     </div>);
 };
 export const MenuComponent = (props) => {
-    let header = (props.check) ? loggedin() : anonymous();
+    let header = (props.check) ? loggedin(props) : anonymous();
     return(
         <div>
         {header}
